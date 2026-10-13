@@ -3,324 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#123347" />
-  <meta name="description" content="Guide de découverte grands comptes : les bonnes questions pour les propriétaires de centres auditifs et responsables de centrales." />
-  <title>Découverte Audio · Guide d’entretien</title>
+  <meta name="theme-color" content="#f7f9f9" />
+  <meta name="description" content="Cartes de découverte pour propriétaires de centres auditifs et responsables de centrales." />
+  <title>Découverte Audio · Demant</title>
   <style>
     :root {
       color-scheme: light;
-      --navy: #123347;
-      --navy-strong: #0d293b;
-      --blue-gray: #456170;
-      --teal: #087e83;
-      --teal-deep: #07676b;
-      --teal-light: #eaf6f4;
-      --teal-mid: #c4e6e2;
-      --gold: #d9ac6d;
-      --warm: #fffdf9;
+      --ink: #173646;
+      --muted: #637a82;
+      --teal: #087d80;
+      --border: #dce6e7;
       --surface: #ffffff;
-      --surface-muted: #f5f8f9;
-      --line: #dce7e9;
-      --line-soft: #e9eff0;
-      --text: #173344;
-      --muted: #607784;
-      --shadow: 0 10px 28px rgba(13, 46, 63, .055);
-      --radius: 20px;
+      --background: #f7f9f9;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      color: var(--ink);
+      background: var(--background);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
-      background: #f5f8f9;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
-    button, input { font: inherit; }
-    button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
-    button:focus-visible, input:focus-visible { outline: 3px solid #68c8c5; outline-offset: 4px; }
-    .skip-link { position: absolute; z-index: 200; top: -60px; left: 12px; padding: 11px 15px; border-radius: 9px; color: var(--navy); background: white; }
-    .skip-link:focus { top: 12px; }
-    .hero {
-      background:
-        radial-gradient(ellipse 440px 340px at 93% 20%, rgba(35, 154, 156, .20) 0%, transparent 76%),
-        radial-gradient(ellipse 380px 280px at 77% 104%, rgba(28, 111, 133, .24) 0%, transparent 80%),
-        var(--navy);
-      color: #f7fafb;
-      position: relative;
-      overflow: hidden;
+    button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    button:focus-visible { outline: 3px solid #66c7c4; outline-offset: 3px; }
+    .skip-link { position: absolute; top: -80px; left: 10px; background: #fff; padding: 12px; z-index: 10; }
+    .skip-link:focus { top: 8px; }
+    main { max-width: 740px; margin: 0 auto; padding: 22px 18px 70px; }
+    .profile-card, .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
     }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 460px; height: 460px;
-      border: 1px solid rgba(170, 229, 222, .12);
-      border-radius: 50%; right: -155px; top: -220px;
-      pointer-events: none;
+    .profile-card { padding: 21px; }
+    h1, h2 { margin: 0; letter-spacing: -.025em; }
+    h1 { font-size: 1.08rem; line-height: 1.35; margin-bottom: 15px; font-weight: 730; }
+    .profile-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .profile-btn {
+      min-height: 54px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      text-align: center;
+      font-size: .92rem;
+      font-weight: 650;
+      line-height: 1.3;
+      transition: background .12s ease, border-color .12s ease;
     }
-    .hero-inner, .main-inner, .footer-inner { max-width: 1060px; margin: 0 auto; padding-left: 30px; padding-right: 30px; }
-    .hero-inner { position: relative; z-index: 1; padding-top: 25px; padding-bottom: 41px; }
-    .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: .065em; font-size: .84rem; }
-    .brand-mark { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 11px; background: rgba(168, 236, 227, .12); border: 1px solid rgba(168, 236, 227, .25); }
-    .brand-mark svg { width: 20px; height: 20px; color: #9be8df; }
-    .header-detail { font-size: .78rem; letter-spacing: .02em; color: #bfced6; }
-    .eyebrow { font-size: .69rem; text-transform: uppercase; letter-spacing: .2em; font-weight: 750; }
-    .hero-eyebrow { color: #9dd9d7; margin-top: 46px; margin-bottom: 10px; }
-    h1 { font-size: clamp(2.2rem, 4.3vw, 3.32rem); letter-spacing: -.055em; line-height: 1.08; font-weight: 760; margin: 0; max-width: 650px; }
-    h1 .highlight { color: #a6ebe2; }
-    .hero-copy { color: #d4e1e5; margin: 17px 0 0; max-width: 590px; font-size: 1rem; line-height: 1.7; }
-    .hero-meta { display: flex; align-items: center; gap: 15px; margin-top: 26px; font-size: .8rem; color: #c6d8dd; }
-    .hero-meta .tiny-rule { width: 25px; height: 2px; background: var(--gold); }
-    .main-inner { padding-top: 30px; padding-bottom: 135px; }
-    .layout { display: grid; grid-template-columns: minmax(255px, 315px) minmax(0, 1fr); gap: 31px; align-items: start; }
-    .side { position: sticky; top: 23px; }
-    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .side-panel { padding: 23px; }
-    .section-index { color: var(--teal); font-size: .66rem; letter-spacing: .14em; font-weight: 800; }
-    .side h2 { font-size: 1.17rem; letter-spacing: -.032em; line-height: 1.33; margin: 10px 0 9px; }
-    .side-text { font-size: .85rem; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
-    .profile-list { display: grid; gap: 9px; }
-    .profile-btn { width: 100%; min-height: 70px; border: 1px solid var(--line); background: #fff; color: var(--text); border-radius: 14px; text-align: left; padding: 12px 14px; display: flex; align-items: center; gap: 12px; transition: background .16s ease, border-color .16s ease, box-shadow .16s ease; }
-    .profile-btn:hover { border-color: #a5cdd0; background: #f9fcfc; }
-    .profile-btn[aria-pressed="true"] { border-color: #83c9c7; background: var(--teal-light); box-shadow: inset 3px 0 0 var(--teal); }
-    .profile-icon { display: flex; justify-content: center; align-items: center; width: 36px; height: 36px; border-radius: 10px; background: #eff5f6; color: var(--blue-gray); flex: none; }
-    .profile-btn[aria-pressed="true"] .profile-icon { background: #d2eae8; color: var(--teal-deep); }
-    .profile-icon svg { width: 20px; height: 20px; }
-    .profile-label { display: block; font-size: .85rem; font-weight: 760; letter-spacing: -.014em; }
-    .profile-hint { display: block; font-size: .72rem; margin-top: 3px; color: var(--muted); }
-    .side-advice { margin-top: 18px; border-left: 2px solid var(--gold); padding: 1px 0 1px 13px; }
-    .side-advice .side-advice-title { font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-gray); margin: 0 0 6px; }
-    .side-advice p { color: #55707c; font-size: .81rem; line-height: 1.58; margin: 0; }
-    .content { min-width: 0; }
-    .section-head { display: flex; justify-content: space-between; gap: 15px; align-items: end; margin: 0 0 18px; }
-    .section-head h2 { font-size: 1.67rem; line-height: 1.22; margin: 7px 0 6px; letter-spacing: -.05em; font-weight: 765; }
-    .section-description { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.5; }
-    .count { font-size: .74rem; font-weight: 730; color: var(--teal-deep); white-space: nowrap; padding-bottom: 5px; }
-    .search-wrap { width: 100%; position: relative; margin: 0 0 17px; }
-    .search-wrap svg { position: absolute; width: 18px; height: 18px; color: #79919b; left: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; }
-    .search-input { width: 100%; padding: 13px 42px 13px 44px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--text); font-size: .87rem; outline-offset: 1px; }
-    .search-input::placeholder { color: #8ba0a9; }
-    .search-input:focus { border-color: #75c6c3; }
-    .clear-search { display: none; border: none; border-radius: 100px; background: #eef3f4; color: var(--blue-gray); position: absolute; right: 9px; top: 50%; transform: translateY(-50%); width: 29px; height: 29px; align-items: center; justify-content: center; }
-    .clear-search.visible { display: flex; }
-    .topic-list { display: grid; gap: 13px; }
-    .topic-card { overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 4px 15px rgba(17, 54, 68, .028); transition: border-color .18s ease, box-shadow .18s ease; }
-    .topic-card[data-expanded="true"] { border-color: #9acbc9; box-shadow: 0 9px 32px rgba(10, 66, 72, .065); }
-    .topic-toggle { display: grid; grid-template-columns: 43px minmax(0, 1fr) 22px; width: 100%; gap: 16px; align-items: start; text-align: left; padding: 21px 23px 20px; border: none; background: transparent; color: inherit; }
-    .topic-toggle:hover { background: #fcfefe; }
-    .topic-icon { display: flex; align-items: center; justify-content: center; width: 43px; height: 43px; border-radius: 13px; color: var(--teal-deep); background: #eff7f5; }
-    .topic-icon svg { width: 22px; height: 22px; }
-    .topic-number { display: block; font-size: .64rem; font-weight: 800; color: #8aa0a7; letter-spacing: .14em; margin: 0 0 5px; }
-    .topic-title { display: block; font-size: 1.045rem; font-weight: 765; line-height: 1.28; letter-spacing: -.025em; }
-    .topic-preview { display: block; color: #69808b; font-size: .82rem; line-height: 1.47; margin-top: 8px; }
-    .topic-card[data-expanded="true"] .topic-preview { display: none; }
-    .chevron { width: 22px; height: 22px; color: #7a949e; margin-top: 14px; transition: transform .18s ease; }
-    .topic-card[data-expanded="true"] .chevron { transform: rotate(180deg); color: var(--teal); }
-    .topic-body { padding: 0 23px 26px 82px; }
+    .profile-btn[aria-pressed="true"] {
+      background: #e9f5f3;
+      border-color: #6dbdbb;
+      color: #076b6c;
+    }
+    .topics { margin-top: 25px; }
+    h2 { font-size: 1rem; font-weight: 720; margin: 0 0 12px 2px; }
+    .topic-list { display: grid; gap: 9px; }
+    .topic-card { overflow: hidden; }
+    .topic-card[data-expanded="true"] { border-color: #90c6c3; }
+    .topic-toggle {
+      width: 100%;
+      min-height: 61px;
+      padding: 17px 19px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      background: transparent;
+      border: 0;
+      color: inherit;
+      text-align: left;
+      font-size: .99rem;
+      font-weight: 680;
+      line-height: 1.32;
+    }
+    .chevron {
+      flex: none;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #82969d;
+      border-bottom: 2px solid #82969d;
+      transform: rotate(45deg);
+      transition: transform .14s ease;
+      margin: -5px 3px 0 0;
+    }
+    .topic-card[data-expanded="true"] .chevron {
+      border-color: var(--teal);
+      transform: rotate(225deg);
+      margin-top: 5px;
+    }
+    .topic-body { padding: 0 19px 21px; }
     .topic-body[hidden] { display: none; }
-    .question-open { background: #eff8f7; border-left: 3px solid var(--teal); border-radius: 0 12px 12px 0; padding: 17px 20px 17px 19px; }
-    .question-label { display: block; text-transform: uppercase; font-size: .655rem; letter-spacing: .12em; font-weight: 830; color: var(--teal-deep); margin-bottom: 8px; }
-    .question-open p { font-size: 1.07rem; font-weight: 660; line-height: 1.5; letter-spacing: -.025em; margin: 0; color: var(--navy); }
-    .question-group { padding-top: 21px; }
-    .question-group + .question-group { padding-top: 18px; }
-    .group-title { display: flex; align-items: center; gap: 8px; color: #49636f; font-size: .73rem; font-weight: 830; text-transform: uppercase; letter-spacing: .07em; margin: 0 0 8px; }
-    .group-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
-    .question-list { padding: 0; margin: 0; list-style: none; }
-    .question-list li { color: #334e5e; font-size: .865rem; line-height: 1.56; padding: 6px 0 6px 17px; position: relative; }
-    .question-list li::before { content: ""; width: 5px; height: 5px; background: #b5c7cb; border-radius: 50%; position: absolute; left: 2px; top: 17px; }
-    .question-projection { color: var(--teal-deep); background: #f8fbf9; border-radius: 9px; font-size: .87rem; font-weight: 570; line-height: 1.58; padding: 12px 15px; margin: 2px 0 0; }
-    .empty { border: 1px dashed #bcd0d3; background: #fff; border-radius: 16px; padding: 33px 20px; text-align: center; color: var(--muted); }
-    .empty h3 { color: var(--text); font-size: 1rem; margin: 0 0 7px; }
-    .empty p { margin: 0; font-size: .83rem; }
-    .float-bar { position: fixed; z-index: 30; bottom: max(23px, env(safe-area-inset-bottom)); right: 23px; pointer-events: none; display: flex; align-items: center; justify-content: center; width: max-content; max-width: calc(100vw - 26px); }
-    .float-button { border: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; gap: 11px; border-radius: 99px; padding: 15px 23px; background: var(--navy); box-shadow: 0 12px 28px rgba(10, 40, 56, .24); color: #fff; font-weight: 770; font-size: .86rem; white-space: nowrap; }
-    .float-button:hover { background: #1c4a5a; }
-    .float-button svg { width: 19px; height: 19px; color: #a0e5df; }
-    .float-hint { color: #d7eced; font-size: .75rem; font-weight: 450; }
-    .overlay[hidden], .sheet[hidden] { display: none; }
-    .overlay { position: fixed; inset: 0; background: rgba(6, 29, 42, .48); z-index: 45; backdrop-filter: blur(3px); }
-    .sheet { position: fixed; z-index: 50; background: #fff; left: 50%; bottom: 24px; transform: translateX(-50%); width: min(520px, calc(100vw - 28px)); border-radius: 22px; box-shadow: 0 24px 75px rgba(5, 25, 35, .35); padding: 25px 27px 27px; max-height: min(650px, calc(100dvh - 30px)); overflow: auto; }
-    .sheet-head { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
-    .sheet h2 { margin: 6px 0 5px; font-size: 1.54rem; letter-spacing: -.055em; line-height: 1.2; }
-    .sheet-explain { color: var(--muted); font-size: .85rem; line-height: 1.56; margin: 7px 0 18px; }
-    .close-sheet { border: none; color: var(--navy); background: #f0f4f5; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; flex: none; }
-    .close-sheet svg { width: 18px; height: 18px; }
-    .follow-list { list-style: none; padding: 0; margin: 0; }
-    .follow-list li { display: flex; gap: 13px; align-items: center; padding: 15px 0; border-top: 1px solid var(--line-soft); }
-    .follow-num { align-self: flex-start; flex: none; background: #eaf6f4; color: var(--teal-deep); border-radius: 9px; display: grid; place-items: center; width: 30px; height: 30px; font-weight: 800; font-size: .73rem; }
-    .follow-text { margin: 0; font-size: .88rem; font-weight: 690; line-height: 1.4; }
-    .follow-purpose { display: block; font-size: .72rem; color: #758b94; font-weight: 460; margin-top: 3px; }
-    .footer { border-top: 1px solid #e0e9eb; padding-bottom: 30px; }
-    .footer-inner { padding-top: 21px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-    .footer small { font-size: .73rem; color: #768b95; }
-    .footer strong { font-size: .77rem; color: #47616e; }
-    @media (max-width: 850px) {
-      .hero-inner, .main-inner, .footer-inner { padding-left: 22px; padding-right: 22px; }
-      .layout { grid-template-columns: 1fr; gap: 27px; }
-      .side { position: static; }
-      .side-panel { padding: 20px; }
-      .side h2 { margin: 7px 0 5px; }
-      .side-text { margin-bottom: 14px; }
-      .profile-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-      .side-advice { display: none; }
+    .question-open {
+      background: #eff8f6;
+      border-radius: 9px;
+      padding: 15px 16px;
+      font-size: 1.01rem;
+      font-weight: 640;
+      line-height: 1.52;
     }
+    .question-section { margin-top: 20px; }
+    .question-section h3 {
+      margin: 0 0 7px;
+      text-transform: uppercase;
+      letter-spacing: .075em;
+      font-size: .71rem;
+      font-weight: 770;
+      color: var(--teal);
+    }
+    .question-section ul { margin: 0; padding-left: 20px; }
+    .question-section li, .question-projection {
+      font-size: .9rem;
+      line-height: 1.55;
+      color: #304e5b;
+    }
+    .question-section li + li { margin-top: 8px; }
+    .question-projection { margin: 0; }
     @media (max-width: 560px) {
-      .hero-inner, .main-inner, .footer-inner { padding-left: 17px; padding-right: 17px; }
-      .hero-inner { padding-top: 16px; padding-bottom: 21px; }
-      .brand { font-size: .76rem; gap: 8px; }
-      .brand-mark { width: 31px; height: 31px; }
-      .header-detail { font-size: .67rem; text-align: right; }
-      .hero-eyebrow { margin-top: 19px; margin-bottom: 7px; font-size: .6rem; }
-      h1 { font-size: 2.03rem; line-height: 1.08; letter-spacing: -.055em; }
-      .hero-copy { font-size: .82rem; margin-top: 9px; line-height: 1.5; }
-      .hero-meta { display: none; }
-      .main-inner { padding-top: 14px; }
-      .layout { gap: 18px; }
-      .side-panel { padding: 15px; border-radius: 16px; }
-      .side h2 { font-size: 1.1rem; }
-      .side-text { font-size: .76rem; margin-bottom: 10px; }
-      .profile-btn { min-height: 61px; padding: 11px; gap: 9px; border-radius: 11px; }
-      .profile-icon { width: 30px; height: 30px; border-radius: 9px; }
-      .profile-icon svg { width: 18px; height: 18px; }
-      .profile-label { font-size: .72rem; line-height: 1.23; }
-      .profile-hint { font-size: .66rem; margin-top: 5px; }
-      .section-head { margin-bottom: 14px; align-items: center; }
-      .section-head h2 { font-size: 1.4rem; }
-      .section-description { font-size: .78rem; }
-      .count { font-size: .69rem; padding: 0 0 2px; }
-      .search-wrap { margin-bottom: 13px; }
-      .topic-list { gap: 10px; }
-      .topic-card { border-radius: 14px; }
-      .topic-toggle { grid-template-columns: 38px minmax(0, 1fr) 19px; gap: 11px; padding: 17px 14px; }
-      .topic-icon { width: 38px; height: 38px; border-radius: 11px; }
-      .topic-icon svg { width: 20px; height: 20px; }
-      .topic-title { font-size: .93rem; }
-      .topic-preview { font-size: .75rem; line-height: 1.47; margin-top: 6px; }
-      .chevron { width: 19px; height: 19px; }
-      .topic-body { padding: 0 15px 23px; }
-      .question-open { padding: 16px 15px; }
-      .question-open p { font-size: .975rem; }
-      .question-list li { font-size: .83rem; }
-      .float-bar { bottom: max(15px, env(safe-area-inset-bottom)); right: 14px; }
-      .float-button { padding: 13px 19px; font-size: .81rem; }
-      .float-hint { display: none; }
-      .sheet { bottom: 0; width: 100vw; border-radius: 22px 22px 0 0; padding: 25px 21px max(27px, env(safe-area-inset-bottom)); max-height: 86dvh; }
-      .footer-inner { align-items: flex-start; }
-      .footer small { max-width: 60%; line-height: 1.5; }
+      main { padding: 12px 12px 55px; }
+      .profile-card { padding: 16px; }
+      h1 { margin-bottom: 11px; }
+      .profile-options { gap: 8px; }
+      .profile-btn { font-size: .82rem; padding: 10px 9px; min-height: 55px; }
+      .topics { margin-top: 20px; }
+      .topic-list { gap: 8px; }
+      .topic-toggle { min-height: 57px; padding: 15px 16px; font-size: .94rem; }
+      .topic-body { padding: 0 15px 18px; }
+      .question-open { font-size: .95rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#topics">Aller aux thématiques</a>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="brand-row">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c2.8 0 2.8-4 5.6-4S11.4 9 14.2 9s2.8-4 5.8-4"/><path d="M3 15c2.8 0 2.8-4 5.6-4s2.8 4 5.6 4 2.8-4 5.8-4"/><path d="M3 21c2.8 0 2.8-4 5.6-4s2.8 4 5.6 4 2.8-4 5.8-4"/></svg>
-          </span>
-          DÉCOUVERTE AUDIO
-        </div>
-        <div class="header-detail">Guide d'entretien · Demant</div>
+  <main>
+    <section class="profile-card" aria-labelledby="profile-title">
+      <h1 id="profile-title">Votre interlocuteur</h1>
+      <div class="profile-options" role="group" aria-label="Votre interlocuteur">
+        <button type="button" class="profile-btn" data-profile="centre" aria-pressed="true">Propriétaire de centre</button>
+        <button type="button" class="profile-btn" data-profile="centrale" aria-pressed="false">Responsable de centrale</button>
       </div>
-      <div class="eyebrow hero-eyebrow">Développement grands comptes</div>
-      <h1>Au-delà du produit, <span class="highlight">les vrais enjeux.</span></h1>
-      <p class="hero-copy">Le bon sujet, au bon moment. Des questions ouvertes pour mieux comprendre votre interlocuteur et construire un partenariat qui compte.</p>
-      <div class="hero-meta"><span class="tiny-rule" aria-hidden="true"></span><span>Un guide de découverte, pas un argumentaire.</span></div>
-    </div>
-  </header>
-
-  <main class="main-inner">
-    <div class="layout">
-      <aside class="side" aria-label="Profil d’interlocuteur">
-        <section class="panel side-panel" aria-labelledby="profile-title">
-          <div class="section-index">01 — VOTRE INTERLOCUTEUR</div>
-          <h2 id="profile-title">Qui rencontrez-vous ?</h2>
-          <p class="side-text">Choisissez le profil pour afficher les questions adaptées.</p>
-          <div class="profile-list" role="group" aria-label="Choix de l’interlocuteur">
-            <button type="button" class="profile-btn" data-profile="centre" aria-pressed="true">
-              <span class="profile-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M2 21h20M9 21v-5h6v5M8 9h2m4 0h2M8 12h2m4 0h2M9 5V3h6v2"/></svg>
-              </span>
-              <span><span class="profile-label">Propriétaire de centre</span><span class="profile-hint">Indépendant · Multicentres</span></span>
-            </button>
-            <button type="button" class="profile-btn" data-profile="centrale" aria-pressed="false">
-              <span class="profile-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18.5" r="2.2"/><circle cx="19" cy="18.5" r="2.2"/><path d="M12 7.3v4.7M12 12H5v4.3M12 12h7v4.3"/></svg>
-              </span>
-              <span><span class="profile-label">Responsable de centrale</span><span class="profile-hint">Réseau · Groupement</span></span>
-            </button>
-          </div>
-          <div class="side-advice">
-            <p class="side-advice-title">Le réflexe clé</p>
-            <p>Ne parcourez pas toutes les cartes. Suivez le sujet qui compte pour votre interlocuteur, et creusez-le vraiment.</p>
-          </div>
-        </section>
-      </aside>
-
-      <section class="content" id="topics" aria-labelledby="topics-title">
-        <div class="section-head">
-          <div>
-            <div class="section-index">02 — EXPLORER LES ENJEUX</div>
-            <h2 id="topics-title">Cartes thématiques</h2>
-            <p class="section-description" id="topics-subtitle">Pour un propriétaire de centre auditif.</p>
-          </div>
-          <div class="count" id="topics-count" aria-live="polite">— thèmes</div>
-        </div>
-        <div class="search-wrap" role="search">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg>
-          <input id="topic-search" class="search-input" type="search" autocomplete="off" placeholder="Rechercher une thématique…" aria-label="Rechercher parmi les thématiques" />
-          <button id="clear-search" class="clear-search" type="button" aria-label="Effacer la recherche" title="Effacer la recherche">
-            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
-          </button>
-        </div>
-        <div id="topic-list" class="topic-list" aria-live="off"></div>
-      </section>
-    </div>
+    </section>
+    <section class="topics" id="topics" aria-labelledby="topics-title">
+      <h2 id="topics-title">Thématiques</h2>
+      <div id="topic-list" class="topic-list"></div>
+    </section>
   </main>
-
-  <footer class="footer">
-    <div class="footer-inner"><small>Les questions sont des portes d'entrée, jamais un questionnaire à dérouler.</small><strong>Laurent Serre</strong></div>
-  </footer>
-
-  <div class="float-bar">
-    <button id="open-followups" class="float-button" type="button" aria-haspopup="dialog" aria-controls="followup-sheet" aria-label="Les cinq relances universelles">
-      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0v2.5a4 4 0 0 1-4 4h-1.5"/><rect x="2.5" y="11" width="4" height="6" rx="1.7"/><rect x="17.5" y="11" width="4" height="6" rx="1.7"/><path d="M14 19h-4"/></svg>
-      5 relances
-      <span class="float-hint">↗</span>
-    </button>
-  </div>
-  <div class="overlay" id="sheet-overlay" hidden></div>
-  <section id="followup-sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1" hidden>
-    <div class="sheet-head">
-      <div>
-        <div class="section-index">QUAND LE SUJET DEVIENT INTÉRESSANT</div>
-        <h2 id="sheet-title">Creuser sans forcer</h2>
-      </div>
-      <button id="close-followups" class="close-sheet" type="button" aria-label="Fermer les relances">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
-      </button>
-    </div>
-    <p class="sheet-explain">Une relance suffit souvent à passer d'une réponse générale à un enjeu concret.</p>
-    <ol class="follow-list">
-      <li><span class="follow-num">01</span><div><p class="follow-text">« C'est-à-dire ? »</p><span class="follow-purpose">Faire préciser</span></div></li>
-      <li><span class="follow-num">02</span><div><p class="follow-text">« Vous pouvez me donner un exemple récent ? »</p><span class="follow-purpose">Revenir aux faits</span></div></li>
-      <li><span class="follow-num">03</span><div><p class="follow-text">« Qu'est-ce que cela change concrètement pour vous ? »</p><span class="follow-purpose">Faire émerger les conséquences</span></div></li>
-      <li><span class="follow-num">04</span><div><p class="follow-text">« Qu'avez-vous déjà essayé ? »</p><span class="follow-purpose">Comprendre les tentatives précédentes</span></div></li>
-      <li><span class="follow-num">05</span><div><p class="follow-text">« Idéalement, qu'aimeriez-vous obtenir ? »</p><span class="follow-purpose">Clarifier la situation souhaitée</span></div></li>
-    </ol>
-  </section>
-
-<script>
-(() => {
-  "use strict";
-  // Contenus de découverte rédigés à partir de l'entretien Frédéric / Laurent.
-  // Les formulations sont des propositions d'entretien, pas des faits sur les clients.
+  <script>
+  (() => {
+    "use strict";
+    // Contenus issus du guide de découverte validé pour Frédéric.
   const topics = [
     {
       id: "priorites", number: "01", title: "Stratégie & priorités", icon: "compass",
@@ -497,124 +333,96 @@
     }
   ];
 
-  const svgPaths = {
-    compass: '<circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-4 1 2-5 4-1Z"/>',
-    trend: '<path d="M3 17 9 11l4 4 8-9"/><path d="M15 6h6v6"/>',
-    chart: '<path d="M4 20V4M4 20h16M8 16v-5M13 16V7M18 16V4"/>',
-    users: '<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2"/><path d="M17 10a3 3 0 0 0 0-6M17 14a5 5 0 0 1 4 5v1"/>',
-    route: '<circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M5 8v8a3 3 0 0 0 3 3h3a3 3 0 0 0 3-3V8a3 3 0 0 1 3-3h2"/>',
-    team: '<circle cx="9" cy="8" r="3"/><circle cx="18" cy="8" r="2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 14a5 5 0 0 1 4 5"/>',
-    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
-    link: '<path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/>',
-    layers: '<rect x="3.5" y="4" width="17" height="5" rx="1"/><rect x="3.5" y="11" width="17" height="5" rx="1"/><path d="M5 20h14"/>',
-    gift: '<rect x="4" y="10" width="16" height="11" rx="1.5"/><path d="M12 10v11M3 7.5h18v3H3z"/><path d="M12 7c-6-1-6-5-3-5 2 0 3 3 3 5Zm0 0c6-1 6-5 3-5-2 0-3 3-3 5Z"/>',
-    network: '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M10.6 6.5 6.4 16M13.4 6.5 17.6 16M7 18h10"/>',
-    spark: '<path d="m12 2 2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2L12 2Z"/>',
-    handshake: '<path d="m2 11 5-5 4 2 2-1 4 1 5 5-5 6-2-2-2 2-2-2-2 1-7-7Z"/><path d="m9 13 3 2m1-7-4 4"/>'
-  };
-  const svg = (name, className = "") => `<svg class="${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${svgPaths[name]}</svg>`;
-  const chevron = '<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg>';
-  const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (ch) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch]));
-  const normalise = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  const $ = (id) => document.getElementById(id);
-  const list = $('topic-list');
-  const search = $('topic-search');
-  let activeProfile = 'centre';
-  let expanded = new Set();
+    const list = document.getElementById("topic-list");
+    const options = document.querySelectorAll("[data-profile]");
+    let activeProfile = "centre";
 
-  function questionList(items) {
-    return `<ul class="question-list">${items.map(x => `<li>${escapeHTML(x)}</li>`).join('')}</ul>`;
-  }
-  function renderTopic(topic) {
-    const questions = topic.profile[activeProfile];
-    const isExpanded = expanded.has(topic.id);
-    return `<article class="topic-card" data-topic-id="${topic.id}" data-expanded="${isExpanded}">
-      <button class="topic-toggle" type="button" aria-expanded="${isExpanded}" aria-controls="topic-body-${topic.id}">
-        <span class="topic-icon">${svg(topic.icon)}</span>
-        <span>
-          <span class="topic-number">THÈME ${topic.number}</span>
-          <span class="topic-title">${escapeHTML(topic.title)}</span>
-          <span class="topic-preview">${escapeHTML(questions.open)}</span>
-        </span>${chevron}
-      </button>
-      <div id="topic-body-${topic.id}" class="topic-body" ${isExpanded ? '' : 'hidden'}>
-        <div class="question-open"><span class="question-label">Grand angle · Ouvrir</span><p>« ${escapeHTML(questions.open)} »</p></div>
-        <div class="question-group"><h3 class="group-title"><span class="group-dot"></span>Approfondir</h3>${questionList(questions.explore)}</div>
-        <div class="question-group"><h3 class="group-title"><span class="group-dot"></span>Enjeux & conséquences</h3>${questionList(questions.impact)}</div>
-        <div class="question-group"><h3 class="group-title"><span class="group-dot"></span>Se projeter</h3><p class="question-projection">« ${escapeHTML(questions.projection)} »</p></div>
-      </div>
-    </article>`;
-  }
-  function render() {
-    const query = normalise(search.value.trim());
-    const available = topics.filter((topic) => Boolean(topic.profile[activeProfile]));
-    const visible = available.filter((topic) => {
-      if (!query) return true;
-      const q = topic.profile[activeProfile];
-      return normalise([topic.title, q.open, ...q.explore, ...q.impact, q.projection].join(' ')).includes(query);
-    });
-    $('topics-count').textContent = `${visible.length} ${visible.length === 1 ? 'thème' : 'thèmes'}`;
-    $('topics-subtitle').textContent = activeProfile === 'centre' ? 'Pour un propriétaire de centre auditif.' : 'Pour un responsable de centrale ou de groupement.';
-    $('clear-search').classList.toggle('visible', Boolean(search.value));
-    list.innerHTML = visible.length ? visible.map(renderTopic).join('') : '<div class="empty"><h3>Aucune thématique trouvée</h3><p>Essayez un autre mot-clé ou effacez votre recherche.</p></div>';
-  }
-  document.querySelectorAll('[data-profile]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.profile;
-      if (target === activeProfile) return;
-      activeProfile = target;
-      expanded.clear();
-      search.value = '';
-      document.querySelectorAll('[data-profile]').forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.profile === activeProfile)));
-      render();
-    });
-  });
-  search.addEventListener('input', render);
-  $('clear-search').addEventListener('click', () => { search.value = ''; render(); search.focus(); });
-  list.addEventListener('click', (event) => {
-    const toggle = event.target.closest('.topic-toggle');
-    if (!toggle) return;
-    const article = toggle.closest('[data-topic-id]');
-    const id = article.dataset.topicId;
-    const body = article.querySelector('.topic-body');
-    const isExpanding = !expanded.has(id);
-    if (isExpanding) expanded.add(id); else expanded.delete(id);
-    article.dataset.expanded = String(isExpanding);
-    toggle.setAttribute('aria-expanded', String(isExpanding));
-    body.hidden = !isExpanding;
-  });
-
-  const overlay = $('sheet-overlay');
-  const sheet = $('followup-sheet');
-  const btnOpen = $('open-followups');
-  const btnClose = $('close-followups');
-  let lastFocused = null;
-  function openSheet() {
-    lastFocused = document.activeElement;
-    overlay.hidden = false; sheet.hidden = false;
-    document.body.style.overflow = 'hidden';
-    btnClose.focus();
-  }
-  function closeSheet() {
-    overlay.hidden = true; sheet.hidden = true;
-    document.body.style.overflow = '';
-    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-  }
-  btnOpen.addEventListener('click', openSheet);
-  btnClose.addEventListener('click', closeSheet);
-  overlay.addEventListener('click', closeSheet);
-  document.addEventListener('keydown', (event) => {
-    if (sheet.hidden) return;
-    if (event.key === 'Escape') { event.preventDefault(); closeSheet(); }
-    if (event.key === 'Tab') {
-      const tabbables = [...sheet.querySelectorAll('button:not([disabled]), a[href], input:not([disabled])')];
-      if (!tabbables.length) return;
-      if (event.shiftKey && document.activeElement === tabbables[0]) { event.preventDefault(); tabbables.at(-1).focus(); }
-      else if (!event.shiftKey && document.activeElement === tabbables.at(-1)) { event.preventDefault(); tabbables[0].focus(); }
+    function group(label, questions) {
+      const section = document.createElement("section");
+      section.className = "question-section";
+      const heading = document.createElement("h3");
+      heading.textContent = label;
+      section.appendChild(heading);
+      if (Array.isArray(questions)) {
+        const items = document.createElement("ul");
+        for (const question of questions) {
+          const item = document.createElement("li");
+          item.textContent = question;
+          items.appendChild(item);
+        }
+        section.appendChild(items);
+      } else {
+        const paragraph = document.createElement("p");
+        paragraph.className = "question-projection";
+        paragraph.textContent = questions;
+        section.appendChild(paragraph);
+      }
+      return section;
     }
-  });
-  render();
-})();
-</script>
+
+    function buildCard(topic) {
+      const questions = topic.profile[activeProfile];
+      const article = document.createElement("article");
+      article.className = "topic-card";
+      article.dataset.expanded = "false";
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "topic-toggle";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-controls", "topic-body-" + topic.id);
+      const label = document.createElement("span");
+      label.textContent = topic.title;
+      const chevron = document.createElement("span");
+      chevron.className = "chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      toggle.append(label, chevron);
+
+      const content = document.createElement("div");
+      content.id = "topic-body-" + topic.id;
+      content.className = "topic-body";
+      content.hidden = true;
+      const opening = document.createElement("div");
+      opening.className = "question-open";
+      opening.textContent = questions.open;
+      content.append(
+        opening,
+        group("Approfondir", questions.explore),
+        group("Enjeux & conséquences", questions.impact),
+        group("Se projeter", questions.projection)
+      );
+      article.append(toggle, content);
+      toggle.addEventListener("click", () => {
+        const willOpen = content.hidden;
+        const previous = list.querySelector('.topic-card[data-expanded="true"]');
+        if (previous && previous !== article) {
+          previous.dataset.expanded = "false";
+          previous.querySelector(".topic-toggle").setAttribute("aria-expanded", "false");
+          previous.querySelector(".topic-body").hidden = true;
+        }
+        content.hidden = !willOpen;
+        article.dataset.expanded = String(willOpen);
+        toggle.setAttribute("aria-expanded", String(willOpen));
+      });
+      return article;
+    }
+
+    function render() {
+      const available = topics.filter(topic => Boolean(topic.profile[activeProfile]));
+      list.replaceChildren(...available.map(buildCard));
+    }
+
+    for (const button of options) {
+      button.addEventListener("click", () => {
+        if (button.dataset.profile === activeProfile) return;
+        activeProfile = button.dataset.profile;
+        for (const choice of options) {
+          choice.setAttribute("aria-pressed", String(choice.dataset.profile === activeProfile));
+        }
+        render();
+      });
+    }
+    render();
+  })();
+  </script>
 </body>
 </html>
