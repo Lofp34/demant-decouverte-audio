@@ -15,3 +15,6 @@ Ouvrir `index.html` dans un navigateur, ou consulter le site GitHub Pages après
 Dans **Settings → Pages**, sélectionner **Build and deployment → Source: GitHub Actions**. Le workflow `.github/workflows/pages.yml` déploie automatiquement les modifications de `main`.
 
 > Le dépôt doit être public pour une publication GitHub Pages gratuite.
+
+## Publication
+Le workflow GitHub Pages se déclenche sur chaque publication dans `main` et peut aussi être lancé manuellement dans l'onglet **Actions**. Adresse attendue : https://lofp34.github.io/demant-decouverte-audio/.
